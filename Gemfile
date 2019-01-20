@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.0'
+ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -36,6 +36,39 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'devise', '~> 4.2'
+gem 'friendly_id', '~> 5.1'
+gem 'simple_form'
+gem 'font_awesome5_rails'
+gem 'font-awesome-rails' # Font-awesome icon
+gem 'ionicons-rails', '~> 2.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'trix-rails', require: 'trix'
+gem 'country_select', '~> 3.1', '>= 3.1.1'
+gem 'countries', require: 'countries/global'
+gem 'ancestry'
+gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist'
+gem 'summernote-rails', '~> 0.8.10.0'
+#gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+
+
+
+gem 'chosen-rails'
+gem 'rails-timeago', '~> 2.0'
+gem 'selectize-rails'
+gem 'currency_select'
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'flag-icons-rails'
+
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -60,3 +93,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+

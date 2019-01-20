@@ -1,0 +1,388 @@
+
+
+
+<%#= simple_form_for(@clothing, html: { class: 'form-inline' }) do |f| %>
+<%= simple_form_for(@clothing) do |f| %>
+
+ <% if @clothing.errors.any? %>
+<div class="container-md">
+       
+<div class="card">
+  <div class="card-body">
+
+    <div id="error_explanation" style="padding: 20px; background: #ffffff; color: #000000" >
+      <h2 class="wine"><%= pluralize(clothing.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @clothing.errors.full_messages.each do |message| %>
+        <li style="list-style-type: square; margin-left: 20px"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<% end %>
+
+
+
+    <!-- Content Section -->
+    <div class="bg-light">
+      <div class="container space-2">
+
+                    <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                <label id="usernameLabel" class="form-label">
+                  Local Currency
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                <%= currency_select("clothing", "currency",  { include_blank: 'Select currency' }, { class: 'form-control' } ) %>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+
+                <label id="usernameLabel" class="form-label">
+                 Category
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                  <%= f.collection_select :w_id, W.all, :id, :name, {:include_blank => 'SSelect clothing category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+       
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+
+                        <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+
+                <label id="usernameLabel" class="form-label">
+                 Fashion
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                  <%= f.collection_select :fashion_id, Fashion.all, :id, :name, {:include_blank => 'Select fashion type'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+       
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+
+        <form class="js-form-message">
+          <div class="row">
+
+
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label id="nameLabel" class="form-label">
+                  Item Name
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+
+                  <%= f.text_field :name, :placeholder => "Enter clothing name", :class => "form-control"  %>
+
+                 
+                  <small class="form-text text-muted">Displayed on your public profile, notifications and other places.</small>
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+
+
+            <!-- Input -->
+
+              <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                <label id="usernameLabel" class="form-label">
+                  Price
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                <%= f.text_field :price, :placeholder => "Enter price: numbers only", :class => "form-control"  %>
+                </div>
+              </div>
+            </div>
+
+            <!-- End Input -->
+
+
+
+                        <!-- Input -->
+
+              <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                <label id="usernameLabel" class="form-label">
+                  Availability
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                <%= f.input :stock, label: false, :collection => ["In-Stock", "Out-of-Stock", "Not Applicable"], :prompt => "Select stock status" %>
+                </div>
+              </div>
+            </div>
+
+            <!-- End Input -->
+
+
+
+
+
+                                     <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                  <label id="usernameLabel" class="form-label">
+                  Local Area
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                                                 <%= f.text_field :local_area, :placeholder => "Local area of this product", :class => "form-control"  %>
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+
+            <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                <label id="usernameLabel" class="form-label">
+                  Town
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                  <%= f.text_field :town, :placeholder => "Town of location for this product", :class => "form-control"  %>
+                                                
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+            <!-- Input -->
+            <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                 <label id="usernameLabel" class="form-label">
+                  Country
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                   <%= country_select("clothing", "country",  { include_blank: 'Select country' }, { class: 'form-control' } ) %>
+                                                 
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+
+
+            
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<label class="form-label">
+            Overview <small>Use formating to change text to bullet points</small>
+            <span class="text-danger">*</span>
+          </label>
+
+          <div class="row">
+            <!-- Input -->
+            <div class="col-md-6 mb-3 mb-sm-6">
+              <div class="js-form-message">
+                <div class="form-group" style="">
+                  
+                  <%#= f.input :overview, as: :trix_editor, :placeholder => 'provide the key features of your product', class: "form-control height-scroll", id: "counted", :input_html => {rows: "12"} %>
+
+
+                  <%= f.trix_editor :overview, :placeholder => 'write full a description of your product', class: "form-control height-scroll", id: "counted", :input_html => {rows: "12"} %>
+
+                  <%#= f.text_area :overview %>
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+
+            
+
+
+
+
+            <!-- End Input -->
+
+
+
+
+
+
+              <div class="col-sm-3 mb-6">
+              <div class="js-form-message">
+                <label id="usernameLabel" class="form-label">
+                  Tags
+                  <span class="text-danger">*</span>
+                </label
+                <div class="form-group">
+            <%#= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "chosen" } %>
+                
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+    <hr class="my-5 mt-0">
+
+            <!-- Images Start -->
+
+
+
+            <!-- Title -->
+          <div class="mb-3">
+            <h2 class="h5 mb-0">Images</h2>
+            <p>A picture speaks a thousand words. </p>
+            <small>To select a consecutive group of images from your pc, click the first item, hold down the SHIFT key, and then click the last item. To select an individual images from a group, hold down the Ctrl key while you select preferred</small>
+          </div>
+          <!-- End Title -->
+
+
+          <div class="media-body">
+            <label class="btn btn-sm btn-primary transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1" for="fileAttachmentBtn">
+              Choose a photo from your device 
+
+              <%= f.file_field :clothingimages, multiple: true, :class => "file-attachment-btn__label" %>
+
+
+              
+            </label>
+
+            <!--button type="submit" class="btn btn-sm btn-soft-secondary transition-3d-hover mb-1 mb-sm-0">Delete</button-->
+          </div>
+
+
+          <!-- End Buttons -->
+
+
+<br>
+
+
+          <!-- Content -->
+    
+
+          <div class="row  col-md-12 col-lg-12 col-xs-12 col-sm-12">
+
+ 
+
+                              <% if @clothing.clothingimages[0] %>
+                              <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 " style="padding-bottom: 5px">
+                            <%= image_tag(@clothing.clothingimages[0].url(:small), :class => "rounded", :width =>"280px") %>
+                              </div>
+                             <% end %>
+
+                                                          <% if @clothing.clothingimages[1] %>
+                              <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12" style="padding-bottom: 5px">
+                            <%= image_tag(@clothing.clothingimages[1].url(:small), :class => "rounded", :width =>"280px") %>
+                              </div>
+                             <% end %>
+
+
+                                                          <% if @clothing.clothingimages[2] %>
+                              <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12" style="padding-bottom: 5px">
+                            <%= image_tag(@clothing.clothingimages[2].url(:small), :class => "rounded", :width =>"280px") %>
+                              </div>
+                             <% end %>
+
+                                                          <% if @clothing.clothingimages[3] %>
+                              <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12" style="padding-bottom: 5px">
+                            <%= image_tag(@clothing.clothingimages[3].url(:small), :class => "rounded", :width =>"280px") %>
+                              </div>
+                             <% end %>
+
+                                                          <% if @clothing.clothingimages[4] %>
+                              <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12" style="padding-bottom: 5px">
+                            <%= image_tag(@clothing.clothingimages[4].url(:small), :class => "rounded", :width =>"280px") %>
+                              </div>
+                             <% end %>
+
+
+        </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+<%= f.button :submit, class: "btn btn-sm btn-primary transition-3d-hover mr-1" %>&nbsp &nbsp &nbsp <%= link_to "Cancel", :back, :class =>"btn btn-sm btn-soft-secondary transition-3d-hover" %>
+
+<% end %>
+
+    <!-- Content Section Ends-->
+    </div>
+  </div>

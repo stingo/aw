@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Title -->
+  <title>Portfolio Profile | Front - Responsive Website Template</title>
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+</head>
+<body>
+
+
+<!--header-->
+<!-- header-->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Author Section -->
+    <div id="SVGwave1BottomSMShape" class="svg-preloader position-relative text-center gradient-overlay-half-info-v1 bg-img-hero overflow-hidden space-top-2 space-top-md-3 africanwear-profiles-bg-2" >
+
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 col-lg-7 col-xl-5">
+          <!-- Info -->
+          <div class="mb-4">
+            <h1 class="display-4 text-white font-weight-normal mb-3"><%= @user.first_name.titleize if @user.first_name %> <%= @user.last_name.titleize if @user.last_name %></h1>
+
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a class="text-white-70" href="#">
+                  <span class="fas fa-map-marker-alt"></span>
+                  California
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="text-white-70" href="#">
+                  <span class="fas fa-globe"></span>
+                  mooreismine.com
+                </a>
+              </li>
+            </ul>
+
+            <p class="text-white">I am an ambitious adventurer, but apart from that, pretty simple person.</p>
+          </div>
+          <!-- End Info -->
+
+          <!-- Followers -->
+          <div class="d-flex justify-content-center align-items-center mb-7">
+            <!-- Followers List -->
+            <ul class="list-inline mr-2 mb-0">
+              <li class="list-inline-item mr-0">
+                <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+
+
+            
+                </div>
+              </li>
+              <li class="list-inline-item ml-n3 mr-0">
+                <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+
+                	<%= image_tag('rmv/32x32/img3.jpg', class: "img-fluid rounded-circle" ) %>
+
+
+                </div>
+              </li>
+              <li class="list-inline-item ml-n3 mr-0">
+                <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+
+                	<%= image_tag('rmv/32x32/img2.jpg', class: "img-fluid rounded-circle" ) %>
+
+
+                </div>
+              </li>
+              <li class="list-inline-item ml-n3 mr-0">
+                <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+
+                	<%= image_tag('rmv/32x32/img4.jpg', class: "img-fluid rounded-circle" ) %>
+
+
+                </div>
+              </li>
+              <li class="list-inline-item ml-n3 mr-0">
+                <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+
+                	<%= image_tag('rmv/32x32/img5.jpg', class: "img-fluid rounded-circle" ) %>
+
+
+               
+                </div>
+              </li>
+            </ul>
+            <!-- End Followers List -->
+
+            <div class="mr-3">
+              <small class="text-white-70">5k followers</small>
+            </div>
+
+            <button type="button" class="btn btn-xs text-primary font-weight-semi-bold btn-white transition-3d-hover">
+              <span class="fas fa-user-plus mr-2"></span>
+              Follow
+            </button>
+          </div>
+          <!-- End Followers -->
+
+          <!-- Avatar -->
+          <div class="u-xl-avatar u-xl-avatar--bordered rounded-circle mx-auto">
+
+          	<% if current_user.pesnavatar? %>
+        <%= image_tag current_user.pesnavatar.url(:thumb), :class => "img-fluid rounded-circle" %>
+        <% else %> 
+        <%= image_tag("fallback/noprofileimage.jpg", :class => "img-fluid rounded-circle") %>
+
+
+       <% end %>
+            
+            
+          </div>
+          <!-- End Avatar -->
+        </div>
+      </div>
+
+      <!-- SVG Background -->
+       <figure class="position-absolute right-0 bottom-0 left-0 z-index-n1">
+        <img class="js-svg-injector" src="<%=image_url("/images/svg/components/wave-1-bottom-sm.svg") %>" alt="Image Description"
+             data-parent="#SVGwave1BottomSMShape">
+
+             <%#= image_tag('svg/components/wave-1-bottom-sm.svg', class: "js-svg-injector") %>
+     
+
+              
+
+
+      </figure>
+      <!-- End SVG Background -->
+    </div>
+    <!-- End Author Section -->
+
+    <!-- Cubeportfolio Section -->
+
+    <!-- Menu Section Start Here -->
+
+<% if @user.clothings.count > 0 %><!--Show Menu layout if there is a food on menu list-->
+
+
+    <div class="container u-cubeportfolio space-2 space-bottom-md-3">
+      <!-- Filter -->
+      <ul id="cubeFilter" class="list-inline cbp-l-filters-alignRight d-sm-flex">
+        <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item mr-auto" data-filter="*">Show all</li>
+        <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".women">Women</li>
+        <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".men">Men</li>
+        <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".girls">Girls</li>
+        <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".unisex">Unisex</li>
+      </ul>
+      <!-- End Filter -->
+
+      <!-- Content -->
+      <div class="cbp mb-7"
+            data-controls="#cubeFilter"
+            data-animation="quicksand"
+            data-x-gap="16"
+            data-y-gap="16"
+            data-load-more-selector="#cubeLoadMore"
+            data-load-more-action="auto"
+            data-load-items-amount="2"
+            data-media-queries='[
+              {"width": 1500, "cols": 4},
+              {"width": 1100, "cols": 4},
+              {"width": 800, "cols": 3},
+              {"width": 480, "cols": 2},
+              {"width": 300, "cols": 1}
+            ]'>
+        <!-- Item -->
+
+        <% @user_clothings.each do |clothing| %>
+
+
+   <!-- women Items -->
+        <% if W.friendly.find(clothing.w_id).name == "Women" %>
+ 
+        <div class="cbp-item rounded women">
+          <div class="cbp-caption">
+            <a class="cbp-lightbox u-media-viewer" href="<%= clothing.clothingimages[0].url(:large)  %>" data-title="To-Do Dashboard<br>by Tiberiu Neamu">
+              <img src="<%= clothing.clothingimages[0].url(:large)  %>" alt="Image Description">
+              <span class="u-media-viewer__container">
+                <span class="u-media-viewer__icon">
+                  <span class="fas fa-plus u-media-viewer__icon-inner"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+ 
+
+
+
+   <!-- men Items -->
+       <% elsif W.friendly.find(clothing.w_id).name == "Men" %>
+ 
+        <!-- Item -->
+        <div class="cbp-item rounded men">
+          <div class="cbp-caption">
+            <a class="cbp-lightbox u-media-viewer" href="<%= clothing.clothingimages[0].url(:large)  %>" data-title="To-Do Dashboard<br>by Tiberiu Neamu">
+              <img src="<%= clothing.clothingimages[0].url(:large)  %>" alt="Image Description">
+              <span class="u-media-viewer__container">
+                <span class="u-media-viewer__icon">
+                  <span class="fas fa-plus u-media-viewer__icon-inner"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+         <!-- End men listings-->
+
+
+
+       <!-- girls Items -->
+       <% elsif W.friendly.find(clothing.w_id).name == "Girls" %>
+ 
+        <!-- Item -->
+        <div class="cbp-item rounded girls">
+          <div class="cbp-caption">
+            <a class="cbp-lightbox u-media-viewer" href="<%= clothing.clothingimages[0].url(:large)  %>" data-title="To-Do Dashboard<br>by Tiberiu Neamu">
+              <img src="<%= clothing.clothingimages[0].url(:large)  %>" alt="Image Description">
+              <span class="u-media-viewer__container">
+                <span class="u-media-viewer__icon">
+                  <span class="fas fa-plus u-media-viewer__icon-inner"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+         <!-- End girls listings-->
+
+
+                <!-- unisex Items -->
+       <% elsif W.friendly.find(clothing.w_id).name == "Unisex" %>
+ 
+        <!-- Item -->
+        <div class="cbp-item rounded unisex">
+          <div class="cbp-caption">
+            <a class="cbp-lightbox u-media-viewer" href="<%= clothing.clothingimages[0].url(:large)  %>" data-title="To-Do Dashboard<br>by Tiberiu Neamu">
+              <img src="<%= clothing.clothingimages[0].url(:large)  %>" alt="Image Description">
+              <span class="u-media-viewer__container">
+                <span class="u-media-viewer__icon">
+                  <span class="fas fa-plus u-media-viewer__icon-inner"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+         <!-- End unisex listings-->
+
+
+        <% else %>
+        <p class="text-center">No listings yet </p>
+
+         <% end %>
+
+
+
+        <% end %><!-- End all listings-->
+
+
+
+
+
+        
+
+        <!-- Item -->
+        <!--div class="cbp-item rounded graphic illustration">
+          <div class="cbp-caption">
+            <a class="cbp-lightbox u-media-viewer" href="images/rmv/1920x1920/img7.jpg" data-title="World Clock<br>by Alex">
+              
+
+             
+              <%#= image_tag('rmv/500x700/img4.jpg') %>
+
+              <span class="u-media-viewer__container">
+                <span class="u-media-viewer__icon">
+                  <span class="fas fa-plus u-media-viewer__icon-inner"></span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div-->
+        <!-- End Item -->
+
+        
+      </div>
+      <% end %><!-- End listing layout-->
+
+
+
+
+      <!-- Load More Button -->
+      <div id="cubeLoadMore" class="text-center">
+        <a href="../../assets/include/ajax/home-portfolio-business-1/load-more.html" class="cbp-l-loadMore-link link" rel="nofollow">
+          <span class="cbp-l-loadMore-defaultText">
+            Load More
+            <span class="link__icon ml-1">
+              <span class="link__icon-inner">&#43;</span>
+            </span>
+          </span>
+          <span class="cbp-l-loadMore-loadingText">Loading...</span>
+          <span class="cbp-l-loadMore-noMoreLoading">No listing yet</span>
+        </a>
+      </div>
+      <!-- End Load More Button -->
+    </div>
+    <!-- End Cubeportfolio Section -->
+
+    <!-- Testimonials -->
+    <div id="SVGirregularShape2Right" class="svg-preloader position-relative gradient-half-info-v1 z-index-2">
+      <div class="bg-img-hero-bottom" style="background-image: url(rm/img/bg-shapes/bg2.png);">
+        <div class="container space-top-2 space-top-md-3 space-bottom-4">
+          <!-- Testimonials -->
+          <div class="text-center">
+            <div class="mb-4">
+              <div class="u-avatar mx-auto mb-3">
+                
+                <%= image_tag('rmv/100x100/img1.jpg', class: "img-fluid rounded-circle" ) %>
+              </div>
+              <h4 class="h6 text-white">Maria Muszynska, Google</h4>
+            </div>
+            <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-7">
+              <blockquote class="h3 text-white mb-0">The template is really nice and offers quite a large set of options. It's beautiful and the coding is done quickly and seamlessly. Thank you!</blockquote>
+            </div>
+          </div>
+          <!-- End Testimonials -->
+        </div>
+
+        <!-- SVG Quote -->
+        <figure class="w-25 position-absolute top-0 right-0 left-0 ml-11">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;" xml:space="preserve">
+            <path class="fill-white" opacity=".1" d="M3,1.3C2,1.7,1.2,2.7,1.2,3.6c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5
+              C1.4,6.9,1,6.6,0.7,6.1C0.4,5.6,0.3,4.9,0.3,4.5c0-1.6,0.8-2.9,2.5-3.7L3,1.3z M7.1,1.3c-1,0.4-1.8,1.4-1.8,2.3
+              c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5c-0.7,0-1.1-0.3-1.4-0.8
+              C4.4,5.6,4.4,4.9,4.4,4.5c0-1.6,0.8-2.9,2.5-3.7L7.1,1.3z"/>
+          </svg>
+        </figure>
+        <!-- End SVG Quote -->
+
+        <!-- SVG Shape -->
+        <div class="position-absolute top-0 right-0 left-0 z-index-n1">
+          <figure class="ie-irregular-shape-2-right">
+            <img class="js-svg-injector" src="../../assets/svg/components/irregular-shape-2-right.svg" alt="Image Description"
+                 data-parent="#SVGirregularShape2Right">
+          </figure>
+        </div>
+        <!-- End SVG Shape -->
+      </div>
+    </div>
+    <!-- End Testimonials -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="container space-1">
+    <div class="row justify-content-sm-between">
+      <div class="col-sm-6 mb-4 mb-sm-0">
+        <!-- List -->
+        <ul class="list-inline list-group-flush list-group-borderless">
+          <li class="list-inline-item pl-0">
+            <a class="list-group-item-action" href="../pages/help.html">Help</a>
+          </li>
+          <li class="list-inline-item pl-3">
+            <a class="list-group-item-action" href="../pages/terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item pl-3">
+            <a class="list-group-item-action" href="../pages/privacy.html">Privacy</a>
+          </li>
+        </ul>
+        <!-- End List -->
+
+        <!-- Copyright -->
+        <p class="small text-muted mb-0">&copy; Front. 2018 Htmlstream. All rights reserved.</p>
+        <!-- End Copyright -->
+      </div>
+
+      <div class="col-sm-6 align-self-sm-end text-sm-right mb-4 mb-sm-0">
+        <!-- Social Networks -->
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+              <span class="fab fa-facebook-f btn-icon__inner"></span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+              <span class="fab fa-google btn-icon__inner"></span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+              <span class="fab fa-twitter btn-icon__inner"></span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+              <span class="fab fa-github btn-icon__inner"></span>
+            </a>
+          </li>
+        </ul>
+        <!-- End Social Networks -->
+      </div>
+    </div>
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+
+
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+    data-position='{"bottom": 15, "right": 15 }'
+    data-type="fixed"
+    data-offset-top="400"
+    data-compensation="#header"
+    data-show-effect="slideInUp"
+    data-hide-effect="slideOutDown">
+    <span class="fas fa-arrow-up u-go-to__inner"></span>
+  </a>
+  <!-- End Go to Top -->
+
+  <!-- JS Global Compulsory -->
+
+
+  <!-- JS Implementing Plugins -->
+ 
+
+  <!-- JS Front -->
+
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(window).on('load', function () {
+      // initialization of HSMegaMenu component
+      $('.js-mega-menu').HSMegaMenu({
+        event: 'hover',
+        pageContainer: $('.container'),
+        breakpoint: 767.98,
+        hideTimeOut: 0
+      });
+
+      // initialization of svg injector module
+      $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+    });
+
+$(document).on("turbolinks:load", function() {
+ 
+      // initialization of header
+      $.HSCore.components.HSHeader.init($('#header'));
+
+      // initialization of unfold component
+      $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+        afterOpen: function () {
+          $(this).find('input[type="search"]').focus();
+        }
+      });
+
+      // initialization of malihu scrollbar
+      $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+      // initialization of forms
+      $.HSCore.components.HSFocusState.init();
+
+      // initialization of cubeportfolio
+      $.HSCore.components.HSCubeportfolio.init('.cbp');
+
+      // initialization of go to
+      $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+  </script>
+</body>
+</html>

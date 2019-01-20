@@ -1,0 +1,72 @@
+<%= simple_form_for(@clothing) do |f| %>
+
+ <%= f.error_notification %>
+
+ <% if clothing.errors.any? %>
+    <div id="error_explanation " class="bg-secondary text-dark">
+      <h2 class="ml-2"><%= pluralize(clothing.errors.count, "error") %> prohibited this Ad from being saved:</h2>
+
+      <ul>
+      <% clothing.errors.full_messages.each do |message| %>
+        <li style="list-style: square;" class="ml-4"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :clothingimages_cache %>
+
+
+
+  <div class="row">
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label id="nameLabel" class="form-label">
+                  Item Name
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                  <%= f.text_field :name, :placeholder => "Enter clothing name", :class => "form-control"  %>
+
+                 
+                  <small class="form-text text-muted">Displayed on your public profile, notifications and other places.</small>
+                </div>
+              </div>
+
+
+
+
+            <div class="u-lg-avatar mr-3">
+
+            <%= image_tag('rmv/160x160/img2.jpg', :class => "img-fluid rounded-circle") %>
+            
+          </div>
+
+          <div class="media-body">
+            <label class="btn btn-sm btn-primary transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1" for="fileAttachmentBtn">
+              Upload New Picture
+
+              <%= f.file_field :clothingimages, multiple: true, :class => "file-attachment-btn__label" %>
+
+
+              
+            </label>
+
+            <!--button type="submit" class="btn btn-sm btn-soft-secondary transition-3d-hover mb-1 mb-sm-0">Delete</button-->
+          </div>
+
+
+
+<div class="row">
+  
+  <%= f.button :submit, class: "btn btn-sm btn-primary transition-3d-hover mr-1" %>&nbsp &nbsp &nbsp <%= link_to "Cancel", :back, :class =>"btn btn-sm btn-soft-secondary transition-3d-hover" %>
+</div>
+
+
+
+
+
+  <% end %>
+

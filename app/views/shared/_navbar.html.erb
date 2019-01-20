@@ -1,0 +1,7 @@
+
+
+ <% if current_user.is_a?(GuestUser) %>
+  <%= render '/shared/nav_guest_africanwear' %>
+<% else %>
+  <%= render '/shared/nav_user_africanwear' %>
+<% end %>

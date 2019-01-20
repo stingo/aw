@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Title -->
+  <title>Portfolio - Simple Single Page | Front - Responsive Website Template</title>
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../../favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+ 
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN ========== -->
+  <main id="content" role="main">
+    <!-- Description Section -->
+    <div class="container space-2 space-top-md-2 space-bottom-md-3">
+      <div class="row">
+        <div class="col-lg-7 mb-7 mb-lg-0">
+          <!-- Cubeportfolio -->
+          <div class="cbp"
+               data-layout="grid"
+               data-animation="quicksand"
+               data-x-gap="32"
+               data-y-gap="32"
+               data-media-queries='[
+                {"width": 300, "cols": 1}
+              ]'>
+
+
+
+              <% if @clothing.clothingimages[0] %>
+
+
+
+            <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption ">
+                <img class="rounded" src="<%= @clothing.clothingimages[0].url(:large) %>" alt="<%= @clothing.name %>" >
+              </div>
+            </div>
+            <!-- End Item -->
+
+
+             <% end %>
+
+            <% if @clothing.clothingimages[1] %>
+
+            <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                 <img class="rounded" src="<%= @clothing.clothingimages[1].url(:large) %>" alt="<%= @clothing.name %>" >
+              </div>
+            </div>
+            <!-- End Item -->
+
+             <% end %>
+
+            <% if @clothing.clothingimages[2] %>
+
+            <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                
+                
+
+                <img class="rounded" src="<%= @clothing.clothingimages[2].url(:large) %>" alt="<%= @clothing.name %>">
+
+              </div>
+            </div>
+            <!-- End Item -->
+
+             <% end %>
+
+            <% if @clothing.clothingimages[3] %>
+
+            <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                
+                
+
+                <img class="rounded" src="<%= @clothing.clothingimages[3].url(:large) %>" alt="<%= @clothing.name %>">
+
+              </div>
+            </div>
+            <!-- End Item -->
+
+             <% end %>
+
+            <% if @clothing.clothingimages[4] %>
+
+
+                        <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                
+                
+
+                <img class="rounded" src="<%= @clothing.clothingimages[4].url(:large) %>" alt="<%= @clothing.name %>">
+
+              </div>
+            </div>
+            <!-- End Item -->
+
+             <% end %>
+
+
+            <% if @clothing.clothingimages.count == 0 %>
+
+            <!-- Item -->
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                
+                
+
+                <img class="rounded" src="https://s3.amazonaws.com/proinsidegh/static/noimage_upfrica_750_420.jpg" alt="<%= @clothing.name %>">
+
+              </div>
+            </div>
+            <!-- End Item -->
+
+
+            <% end %>
+
+
+
+
+
+
+
+          </div>
+          <!-- End Cubeportfolio -->
+        </div>
+
+        <div id="stickyBlockStartPoint" class="col-lg-5">
+          <!-- Sticky Block -->
+          <div class="js-sticky-block pl-lg-4" 
+               data-parent="#stickyBlockStartPoint"
+               data-sticky-view="lg"
+               data-start-point="#stickyBlockStartPoint"
+               data-end-point="#stickyBlockEndPoint"
+               data-offset-top="80"
+               data-offset-bottom="130">
+            <div class="mb-6">
+              <h1 class="h4 text-primary font-weight-semi-bold"><%= @clothing.name.titleize %>   <%=number_to_human_size(@clothing.clothingimages[0].size) %>, <%=number_to_human_size(@clothing.clothingimages[1].size)  %>, <%= @clothing.user.email %></h1>
+
+              <label class="h6 small d-block text-dark"><i class="fas fa-map-marker mr-2"></i><%= @clothing.address if @clothing.local_area || @clothing.town || @clothing.country  %></label>
+
+
+               <small class="d-block mb-1"><span class="text-muted">SKU:</span> <%= @clothing.listing_token.split(//).first(6).join.upcase if @clothing.listing_token %> &nbsp  &nbsp &nbsp   ******* <span class="text-muted">4 REVIEWS</span>  &nbsp  &nbsp &nbsp    
+
+                <span class="text-muted">AVAILABILITY:</span>&nbsp 
+
+                <% if @clothing.stock == "In-Stock" %><i class="fa fa-check-circle" style="color: #96c322; font-size: 18px"></i><span >In Stock </span> 
+
+
+
+
+                        <% elsif @clothing.stock == "Out-of-Stock" %><i class="fa fa-times-circle" style="color: #ff0000; font-size: 18px"></i><span>Out of Stock</span>  
+
+                               <% else %>
+
+                               <% end %></small> &nbsp<small><%= @clothing.currency_name %></small>
+
+
+
+        <span class="d-block h3 text-dark mb-3 ml-0" title="%= @clothing.currency_name %>">&nbsp <%= @clothing.currency %>   <%= number_with_precision(@clothing.price, precision: 0, :delimiter => ',') %> &nbsp<small><%= @clothing.currency_name %></small>
+
+
+
+
+                <%= link_to (flag_icon(@clothing.country.downcase.to_sym)), clothing_path(@clothing.slug) if @clothing.country %> </span>
+
+
+
+          
+
+
+
+                <!-- List -->
+            <ul class="list-unstyled mb-0">
+
+
+
+
+              <li class="media mb-0">
+                <div class="d-flex w-40 w-sm-30">
+                                  <label class="h6 small d-block text-uppercase text-dark">
+                 Vendor
+                </label>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                    <%= link_to @clothing.user.displayname.titleize, user_path(@clothing.user.slug) if @clothing.user.displayname %> &nbsp &nbsp<span class="text-muted"><a href="#"><i class="fa fa-check-circle africanwear-verified" style="font-size: 20px"></i> Verified user</a></span> 
+
+
+                  </small>
+                </div>
+              </li>
+
+
+
+
+<% if @clothing.w_id %>
+
+              <li class="media mb-0">
+                <div class="d-flex w-40 w-sm-30">
+                  <label class="h6 small d-block text-uppercase text-dark">category</label>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                               <%= link_to W.friendly.find(@clothing.w_id).name, w_path(@clothing.w.slug), :class => ""  %>
+
+                  </small>
+                </div>
+              </li>
+
+<% end %>
+
+
+<% if @clothing.fashion_id %>
+
+              <li class="media mb-0">
+                <div class="d-flex w-40 w-sm-30">
+                  <label class="h6 small d-block text-uppercase text-dark">Fasion</label>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+
+                               <%= link_to Fashion.friendly.find(@clothing.fashion_id).name, fashion_path(@clothing.fashion.slug), :class => ""  %>
+
+
+                  </small>
+                </div>
+              </li>
+
+<% end %>
+
+
+
+
+
+
+
+
+              <li class="media mb-0">
+                <div class="d-flex w-40 w-sm-30">
+                 <label class="h6 small d-block text-uppercase text-dark">Tagged</label>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                     <% if @clothing.tag_ids.present? %>
+
+                                      <div class="tag">
+
+
+                                         <span class=""><%= raw(@clothing.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+
+                                        
+
+                                       </div>
+
+                                         <% end %>
+                  </small>
+                  
+                </div>
+              </li>
+
+             
+
+
+            </ul>
+            <!-- End List -->
+                
+
+
+                                        <% if signed_in? && (current_user== @clothing.user || current_user.admin?) %>
+
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp<%= link_to "Edit", edit_clothing_path(@clothing), class: "" %>&nbsp &nbsp 
+                                       <i class="fa fa-trash" aria-hidden="true"></i>&nbsp <%= link_to 'Delete', @clothing, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                                        <% end %>  &nbsp &nbsp 
+                                        <div id="bookmark-icon-clothing-<%= @clothing.id.to_s %>" class= "ml-auto">
+                                          <% if @is_bookmarked.present? %>
+                                          <%= link_to "Bookmarked", bookmark_path(@is_bookmarked), method: :delete, 
+                                          remote: true, :class=>"text-dark" %>
+                                          <% else %>
+                                          <%= link_to "Bookmarked", clothing_bookmarks_path(@clothing), method: :post, 
+                                          remote: true, :class=>"text-muted" %>
+                                          <% end %>
+                                        </div>
+                                       
+              
+
+
+            </div>
+
+            <hr class="my-5">
+
+            <!-- overview -->
+
+
+            <div class="mb-6">
+            <h3 class="h6">Overview</h3>
+            <p ><%= sanitize(@clothing.overview, tags: %w(strong em p br div ul ol li)).html_safe if @clothing.overview %> </p>
+            </div>
+
+
+
+            <hr class="my-5">
+
+            <!-- List -->
+            <ul class="list-unstyled mb-0">
+              <li class="media mb-1">
+                <div class="d-flex w-40 w-sm-30">
+                  <h3 class="h6">Client</h3>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                                                            <% if @clothing.w_id %>
+
+                               <%= link_to W.friendly.find(@clothing.w_id).name, w_path(@clothing.w.slug), :class => "blu text-info"  %>
+
+                                        <% end %>
+
+
+                  </small>
+                </div>
+              </li>
+
+              <li class="media mb-1">
+                <div class="d-flex w-40 w-sm-30">
+                  <h4 class="h6">Designers</h4>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                     <% if @clothing.tag_ids.present? %>
+
+                                      <div class="tag">
+
+
+                                         Tagged: <span class=""><%= raw(@clothing.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+
+                                        
+
+                                       </div>
+
+                                         <% end %>
+                  </small>
+                  <small class="text-muted">
+                    Jack Wayley
+                  </small>
+                </div>
+              </li>
+
+              <li class="media mb-1">
+                <div class="d-flex w-40 w-sm-30">
+                  <h4 class="h6">Partners</h4>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted">
+                    Pixeel
+                  </small>
+                </div>
+              </li>
+
+              <li class="media">
+                <div class="d-flex w-40 w-sm-30">
+                  <h4 class="h6">Awards</h4>
+                </div>
+                <div class="media-body">
+                  <small class="d-block text-muted mb-1">
+                    FWA Site of the Day
+                  </small>
+                  <small class="d-block text-muted mb-1">
+                    Awwwards Site of the Day
+                  </small>
+                  <small class="d-block text-muted mb-1">
+                    CSSAwards Site of the Day
+                  </small>
+                  <small class="d-block text-muted">
+                    Bronze ADCN Lamp (Digital Craft)
+                  </small>
+                </div>
+              </li>
+            </ul>
+            <!-- End List -->
+
+            <hr class="my-5">
+
+            <div class="media">
+              <div class="d-flex w-40 w-sm-30">
+                <h4 class="h6">Share</h4>
+              </div>
+              <div class="media-body">
+                <!-- Social Networks -->
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+                      <span class="fab fa-facebook-f btn-icon__inner"></span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+                      <span class="fab fa-google btn-icon__inner"></span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+                      <span class="fab fa-twitter btn-icon__inner"></span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn btn-sm btn-icon btn-soft-secondary btn-bg-transparent" href="#">
+                      <span class="fab fa-github btn-icon__inner"></span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- End Social Networks -->
+              </div>
+            </div>
+          </div>
+          <!-- End Sticky Block -->
+        </div>
+      </div>
+    </div>
+    <!-- End Description Section -->
+
+    <!-- Sticky Block End Point -->
+    <div id="stickyBlockEndPoint"></div>
+
+    <hr class="my-0">
+
+    <!-- Portfolio Section -->
+    <div class="container space-top-2 space-top-md-3 space-bottom-1">
+      <!-- Title -->
+      <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+        <span class="btn btn-xs btn-soft-success btn-pill mb-2">Portfolio</span>
+        <h2 class="text-primary">Our <strong class="font-weight-semi-bold">Branding</strong> works</h2>
+        <p>Experience a level of our quality in both design &amp; customization works.</p>
+      </div>
+      <!-- End Title -->
+
+      <!-- Cubeportfolio -->
+      <div class="u-cubeportfolio">
+        <!-- Content -->
+        <div class="cbp"
+             data-layout="grid"
+             data-controls="#filterControls"
+             data-animation="quicksand"
+             data-x-gap="32"
+             data-y-gap="32"
+             data-media-queries='[
+              {"width": 1500, "cols": 4},
+              {"width": 1100, "cols": 4},
+              {"width": 800, "cols": 3},
+              {"width": 480, "cols": 2},
+              {"width": 300, "cols": 1}
+            ]'>
+          <!-- Item -->
+          <div class="cbp-item rounded graphic">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img1.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Remind Me More</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Tiberiu Neamu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded branding">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+               
+                <%= image_tag('rmv/380x360/img2.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Workout Buddy</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Tiberiu Neamu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded abstract illustration">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img3.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Tiger</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Cosmin Capitanu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded abstract illustration">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img5.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Tiger</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Cosmin Capitanu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded graphic illustration">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img4.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Tiger</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Cosmin Capitanu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded graphic illustration">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img6.jpg' ) %>
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Tiger</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Cosmin Capitanu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded branding">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+                
+                <%= image_tag('rmv/380x360/img18.jpg' ) %>
+
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Workout Buddy</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Tiberiu Neamu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+
+          <!-- Item -->
+          <div class="cbp-item rounded abstract illustration">
+            <a class="cbp-caption" href="single-page-simple.html">
+              <div class="cbp-caption-defaultWrap">
+
+              	<%= image_tag('rmv/380x360/img12.jpg' ) %>
+
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <h4 class="h6 text-white mb-0">Tiger</h4>
+                    <p class="small text-white-70 mb-0">
+                      by Cosmin Capitanu
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+        </div>
+        <!-- End Content -->
+      </div>
+      <!-- End Cubeportfolio -->
+    </div>
+    <!-- End Portfolio Section -->
+  </main>
+  <!-- ========== END MAIN ========== -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <!-- Lists -->
+    <div class="border-bottom">
+      <div class="container space-2">
+        <div class="row justify-content-md-between">
+          <div class="col-sm-4 col-lg-2 mb-4 mb-lg-0">
+            <h4 class="h6 font-weight-semi-bold">About</h4>
+
+            <!-- List Group -->
+            <ul class="list-group list-group-flush list-group-borderless mb-0">
+              <li><a class="list-group-item list-group-item-action" href="../pages/about-agency.html">About</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/services-agency.html">Services</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/careers.html">Careers</a></li>
+            </ul>
+            <!-- End List Group -->
+          </div>
+
+          <div class="col-sm-4 col-lg-2 mb-4 mb-lg-0">
+            <h4 class="h6 font-weight-semi-bold">Account</h4>
+
+            <!-- List Group -->
+            <ul class="list-group list-group-flush list-group-borderless mb-0">
+              <li><a class="list-group-item list-group-item-action" href="../account/dashboard.html">Account</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../account/my-tasks.html">My tasks</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../account/projects.html">Projects</a></li>
+            </ul>
+            <!-- End List Group -->
+          </div>
+
+          <div class="col-sm-4 col-lg-2 mb-4 mb-lg-0">
+            <h4 class="h6 font-weight-semi-bold">Resources</h4>
+
+            <!-- List Group -->
+            <ul class="list-group list-group-flush list-group-borderless mb-0">
+              <li><a class="list-group-item list-group-item-action" href="../pages/help.html">Help</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/terms.html">Terms</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/privacy.html">Privacy</a></li>
+            </ul>
+            <!-- End List Group -->
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h4 class="h6 font-weight-semi-bold mb-4">We are driven to deliver results for all your businesses.</h4>
+
+            <!-- Button -->
+            <button type="button" class="btn btn-xs btn-dark btn-wide transition-3d-hover text-left mb-2 mr-1">
+              <span class="media align-items-center">
+                <span class="fab fa-apple fa-2x mr-3"></span>
+                <span class="media-body">
+                  <span class="d-block">Download on the</span>
+                  <strong class="font-size-1">App Store</strong>
+                </span>
+              </span>
+            </button>
+            <!-- End Button -->
+
+            <!-- Button -->
+            <button type="button" class="btn btn-xs btn-dark btn-wide transition-3d-hover text-left mb-2">
+              <span class="media align-items-center">
+                <span class="fab fa-google-play fa-2x mr-3"></span>
+                <span class="media-body">
+                  <span class="d-block">Get it on</span>
+                  <strong class="font-size-1">Google Play</strong>
+                </span>
+              </span>
+            </button>
+            <!-- End Button -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Lists -->
+
+    <!-- Copyright -->
+    <div class="container text-center space-1">
+      <!-- Logo -->
+      <a class="d-inline-flex align-items-center mb-2" href="../home/index.html" aria-label="Front">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 46 46" xml:space="preserve" style="margin-bottom: 0;">
+          <path fill="#3F7DE0" opacity=".65" d="M23,41L23,41c-9.9,0-18-8-18-18v0c0-9.9,8-18,18-18h11.3C38,5,41,8,41,11.7V23C41,32.9,32.9,41,23,41z"/>
+          <path class="fill-info" opacity=".5" d="M28,35.9L28,35.9c-9.9,0-18-8-18-18v0c0-9.9,8-18,18-18l11.3,0C43,0,46,3,46,6.6V18C46,27.9,38,35.9,28,35.9z"/>
+          <path class="fill-primary" opacity=".7" d="M18,46L18,46C8,46,0,38,0,28v0c0-9.9,8-18,18-18h11.3c3.7,0,6.6,3,6.6,6.6V28C35.9,38,27.9,46,18,46z"/>
+          <path class="fill-white" d="M17.4,34V18.3h10.2v2.9h-6.4v3.4h4.8v2.9h-4.8V34H17.4z"/>
+        </svg>
+        <span class="brand brand-primary">Front</span>
+      </a>
+      <!-- End Logo -->
+      <p class="small text-muted">&copy; Front. 2018 Htmlstream. All rights reserved.</p>
+    </div>
+    <!-- End Copyright -->
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+  
+
+  <!-- JS Global Compulsory -->
+
+
+  <!-- JS Implementing Plugins -->
+
+
+  <!-- JS Front -->
+
+
+</body>
+</html>
